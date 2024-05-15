@@ -5,7 +5,10 @@ import "../globals.css";
 
 export const metadata = {
     title: 'Threads',
-    description: 'A full stack threads clone application.'
+    description: 'A full stack threads clone application.',
+    icons: {
+        icon: '/assets/logo.svg'
+    }
 };
 
 const inter = Inter({subsets:["latin"]});

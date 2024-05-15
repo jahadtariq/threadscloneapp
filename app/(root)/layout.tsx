@@ -14,6 +14,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Threads Clone",
   description: "A full stack threads clone.",
+  icons: {
+    icon: '/assets/logo.svg'
+  }
 };
 
 export default function RootLayout({
@@ -26,7 +29,7 @@ export default function RootLayout({
       <html lang="en">
         <body className={inter.className}>
           <Topbar/>
-          <main>
+          <main className="flex flex-rows">
             <LeftSidebar/>
             <section className="main-container">
               <div className="w-full max-w-4xl">
