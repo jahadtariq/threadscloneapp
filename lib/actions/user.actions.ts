@@ -46,3 +46,20 @@ export async function updateUser(
         console.log(`Error updating/inserting user: ${error.message}`);
     }
 }
+
+export async function fetchUser(userId: string) {
+    try {
+        
+        connectToDB();
+
+        return await User
+        .findOne({id: userId})
+        // .populate({
+        //     path: 'communities',
+        //     model: Community
+        // })
+
+    } catch (error: any) {
+        console.log(`Error while fetching the user: ${error.message}`);
+    }
+}
