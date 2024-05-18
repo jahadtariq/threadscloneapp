@@ -4,8 +4,8 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 
 export const metadata = {
-    title: 'Threads',
-    description: 'A full stack threads clone application.',
+    title: 'Threads | Auth',
+    description: 'Authentication for thread clone application.',
     icons: {
         icon: '/assets/logo.svg'
     }

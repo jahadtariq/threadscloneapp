@@ -1,11 +1,38 @@
+import AccountProfile from '@/components/forms/AccountProfile';
+import { currentUser } from '@clerk/nextjs/server';
 import React from 'react'
 
 async function page() {
+
+  // gives the current loggedin user
+  const user = await currentUser();
+
+  // get user information from database mongoose (to be implemented)
+  const userInfo = {};
+
+  // combining both logged_in_user from clerk and userInfo from our database to create data object we need
+  const userData = {
+    id: user?.id,
+    objectId: userInfo?._id,
+    username: userInfo?.username || user?.username,
+    name: userInfo?.name || user?.firstName || "",
+    bio: userInfo?.bio || "",
+    image: userInfo?.image || user?.imageUrl,
+  };
+
   return (
-    <main>
+    <main className='mx-auto flex flex-col max-w-3xl justify-start px-10 py-20'>
       <h1 className='head-text'>
-        OnBoarding
+        Onboarding
       </h1>
+      <p className='mt-3 text-base-regular text-light-2'>Complete your profile now to use Threads.</p>
+
+      <section className='mt-9 bg-dark-2 p-10'>
+        <AccountProfile
+          user={userData}
+          btnTitle="Continue"
+        />
+      </section>
     </main>
   )
 }
